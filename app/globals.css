@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #1c1c1c;
+    --foreground: #ededed;
+    --main-foreground: #272727;
+    --main-card-foreground: #303030;
+    --color-border: #444444;
+    --color-text-heading: #7e7e7e;
+    --color-text-body: #a0a0a0;
+    --border-radius: 10px;
+    --hover-color: #303030;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans text-md;
+    font-synthesis: none;
+  }
+}
