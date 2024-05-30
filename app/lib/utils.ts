@@ -22,14 +22,14 @@ export const moveCardToColumn = ({
   // Where key = column name and value = array of cards in that column.
   const card = Object.entries(cards)
     // Then we map over each column
-    .map(([column, cards]) => {
+    .map(([col, cards]) => {
       // And check if the card we're looking for, is in this column.
       const card = cards.find((card) => card.id === cardId);
       // If not, nothing to worry about and we return null.
       if (!card) return null;
 
       // If it is, we return the column name and the card.
-      return { previousColumn: column as Columns, card };
+      return { previousColumn: col as unknown as Columns, card };
 
       // Because we use map, that means we get an array of whatever we return.
       // So in this case, it will be an array of null, and one time the object above.
@@ -47,7 +47,7 @@ export const moveCardToColumn = ({
     return cards;
   }
 
-  // Next we create a new object (we don't mutate the original one, that could  result in weird side effects!)
+  // Next we create a new object (we don't mutate the original one, that could result in weird side effects!)
   // We take the following steps:
   // 1. Copy all the columns from the original object by spreading ...cards
   // 2. Remove the card from the previous column by filtering it out of the array
